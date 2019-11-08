@@ -45,3 +45,13 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('new-person', 'NewPersonController');
+
+/* Route::get('/react', function() {
+  return view('react');
+}); */
+
+Route::get('/react/{anything?}', function() {
+  return view('react');
+})->where('anything', '.*');
+
+Route::get('cool-api', 'CoolApiController@index');

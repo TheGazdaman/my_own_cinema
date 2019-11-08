@@ -30,6 +30,5 @@
         <?php endforeach ?>
     </ul>
 
-    <a href="{{ action('ReviewController@create', $movie->id)}}">Write a review</a>
-    
+    <a href="{{ action('NewMovieController@index')}}">See the movies</a>
 @endsection

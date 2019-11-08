@@ -6,6 +6,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Movie extends Model
 {
+    protected $visible = ['name', 'year', 'genre', 'average_rating'];
+
+    protected $appends = ['average_rating'];
+
+    public function getAverageRatingAttribute() 
+    {
+        $reviews = $this->reviews;
+
+        if($reviews->count() > 0) {
+            return $reviews->avg('rating');
+        }
+    }
+
     public function reviews()
     {
         return $this->hasMany('App\Review');    // $this(movie) has many reviews
@@ -25,4 +38,6 @@ class Movie extends Model
     {
         return $this->belongsToMany('App\Genre');
     }
+
+    
 }

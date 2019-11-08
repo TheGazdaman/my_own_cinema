@@ -10,8 +10,8 @@ class NewMovieController extends Controller
     public function index()
     {
         $movies = Movie::orderBy('id', 'desc')
-        ->limit(10)
-        ->get();
+        ->limit(20) 
+        ->paginate(5);
 
         return view('movies.index', compact('movies'));
 
