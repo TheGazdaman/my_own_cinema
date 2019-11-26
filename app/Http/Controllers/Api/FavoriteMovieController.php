@@ -10,7 +10,7 @@ class FavoriteMovieController extends Controller
 {   
     public function toggle(Request $request)
     {
-        $user_id = $request ->input('user_id'); // ukládám si z proměnné $request informace vložené do inputu 'user_id'
+        $user_id = $request->input('user_id'); // ukládám si z proměnné $request informace vložené do inputu 'user_id'
         $movie_id = $request->input('movie_id');
 
         $favorite_movie = FavoriteMovie::where('user_id', $user_id)->where('movie_id', $movie_id)->first(); // první hodnota - kam se to má podívat, druhá hodnota - co tam má hledat.
@@ -47,7 +47,7 @@ class FavoriteMovieController extends Controller
         $user_id = $request ->input('user_id');
         $movie_id = $request->input('movie_id');
         $favorite_movie = FavoriteMovie::where('user_id', $user_id)              ->where('movie_id', $movie_id)
-                ->first();
+                    ->first();
 
         // if favorite
         if($favorite_movie === null) {
